@@ -1,5 +1,6 @@
 using Mango.Services.AuthAPI.Data;
 using Mango.Services.AuthAPI.Models;
+using Mango.Services.AuthAPI.Service;
 using Mango.Services.AuthAPI.Service.IService;
 using Mango.Web.Service;
 using Microsoft.AspNetCore.Identity;
@@ -23,6 +24,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
